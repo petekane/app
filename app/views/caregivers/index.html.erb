@@ -1,0 +1,27 @@
+<div class="page-header">
+    <h1> Caregivers </h1>
+</div>
+
+<div class="signup_as_caregiver">
+    <%= link_to 'Sign up as a Caregiver', new_caregiver_path, class: "btn" %>
+</div>
+
+<% @caregivers.each do |caregiver| %>
+<div class="caregiver">
+    <p>First Name: <%= caregiver.first_name %></p>
+    <p>Last Name: <%= caregiver.last_name.first %>.</p>
+    <p>Caregiver Role: <%= caregiver.job_title %></P>
+    <p>Years Experience: <%= caregiver.years_experience %></p>
+    <p>Zip Code: <%= caregiver.zip_code %></p>
+    
+    <div class="meta">
+            <%= link_to "Show", caregiver %>
+
+        <span class="admin">
+        <%= link_to "Edit", edit_caregiver_path(caregiver) %> |
+        <%= link_to "Delete", caregiver, method: :delete, data: { confirm: "Are you sure?" } %>
+    </span>
+</div>
+</div>
+<% end %>
+

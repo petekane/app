@@ -1,0 +1,26 @@
+<%= simple_form_for(@caregiver) do |f| %>
+  <% if @caregiver.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@caregiver.errors.count, "error") %> prohibited this caregiver from being saved:</h2>
+
+      <ul>
+      <% @caregiver.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :phone_number %>
+    <%= f.input :email %>
+    <%= f.input :zip_code %>
+    <%= f.input :job_title %>
+    <%= f.input :years_experience %>
+    <%= f.input :bio %>
+    
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
