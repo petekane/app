@@ -1,5 +1,5 @@
 Sugarcare::Application.routes.draw do
-  devise_for :users
+  devise_for :caregivers
 
   resources :caregivers
   root to: 'caregivers#index'

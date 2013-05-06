@@ -32,9 +32,6 @@
   <%= @caregiver.bio %>
 </p>
 
-<%= link_to 'Edit', edit_caregiver_path(@caregiver) %> |
-<%= link_to 'Back', caregivers_path %>
-
 <div>
-      <a class="btn" href="#">Request an Interview</a>
+      <%= mail_to "hello@sugarcare.co", "Request an Interview", :class => "btn", :subject => "Request Caregiver Interview", :body => "I would like to schedule an interview with #{@caregiver.first_name} #{@caregiver.last_name.first}, #{caregiver_url(@caregiver)}" %>
 </div>

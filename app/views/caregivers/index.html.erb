@@ -1,27 +1,32 @@
 <div class="page-header">
-    <h1> Caregivers </h1>
+  <h1> Caregivers </h1>
 </div>
 
+<%= simple_form_for :zipcode, :url => caregivers_path, :html => {:class => "form-search"}, :method => "get" do |f| %>
+  
+  <%= f.input_field :zipcode, :placeholder => "Enter Zipcode...", :html => {:class => 'search-query'} %>
+  <%= f.submit "Search Caregivers", :class => "btn" %>
+<% end %>
+
+<% unless caregiver_signed_in? then %>
 <div class="signup_as_caregiver">
-    <%= link_to 'Sign up as a Caregiver', new_caregiver_path, class: "btn" %>
-</div>
-
-<% @caregivers.each do |caregiver| %>
-<div class="caregiver">
-    <p>First Name: <%= caregiver.first_name %></p>
-    <p>Last Name: <%= caregiver.last_name.first %>.</p>
-    <p>Caregiver Role: <%= caregiver.job_title %></P>
-    <p>Years Experience: <%= caregiver.years_experience %></p>
-    <p>Zip Code: <%= caregiver.zip_code %></p>
-    
-    <div class="meta">
-            <%= link_to "Show", caregiver %>
-
-        <span class="admin">
-        <%= link_to "Edit", edit_caregiver_path(caregiver) %> |
-        <%= link_to "Delete", caregiver, method: :delete, data: { confirm: "Are you sure?" } %>
-    </span>
-</div>
+  <%= link_to 'Sign up as a Caregiver', new_caregiver_registration_path, class: "btn" %>
 </div>
 <% end %>
 
+<% @caregivers.each do |caregiver| %>
+<div class="caregiver">
+  <p>First Name: <%= caregiver.first_name %></p>
+  <p>Last Name: <%= caregiver.last_name.first %>.</p>
+  <p>Caregiver Role: <%= caregiver.job_title %></p>
+  <p>Years Experience: <%= caregiver.years_experience %></p>
+  <p>Zip Code: <%= caregiver.zip_code %></p>
+
+  <div class="meta">
+    <%= link_to "Show", caregiver %>
+
+    <span class="admin">
+    </span>
+  </div>
+</div>
+<%end%>

@@ -1,25 +1,32 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 
+<% if resource.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(resource.errors.count, "error") %> prohibited this caregiver from being saved:</h2>
 
-  <div><%= f.label :first_name %><br />
-  <%= f.text_field :first_name %></div>
+  <ul>
+    <% resource.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div><%= f.label :last_name %><br />
-  <%= f.text_field :last_name %></div>
+<%= f.input :first_name %>
+<%= f.input :last_name %>
+<%= f.input :email %>
+<%= f.input :password %>
+<%= f.input :password_confirmation %>
+<%= f.input :phone_number %>
+<%= f.input :zip_code %>
+<%= f.input :job_title %>
+<%= f.input :years_experience %>
+<%= f.input :bio %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
+<div><%= f.submit "Sign up" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+

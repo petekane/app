@@ -7,40 +7,52 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	 <!-- Main Navigation Links -->
-	 <div id="front-page-nav" class="navbar navbar-fixed-top navbar-inverse">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="#">SugarCare.org</a>
-          <ul class="nav">
-            <li>
-              <a href="#">
+  <!-- Main Navigation Links -->
+  <div id="front-page-nav" class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+      <div class="container">
+        <%= link_to "SugarCare", root_path, :class => "brand" %>
+        <ul class="nav">
+          <li>
+            <a href="#">
               About
-              </a>
-            </li>
-            <li>
-              <a href="#">
+            </a>
+          </li>
+          <li>
+            <a href="#">
               How Does It Work?
-              </a>
-            </li>
-            <li><%= link_to "All Caregivers", caregivers_path %></li>
-          </ul>
-        </div>
+            </a>
+          </li>
+          <li><%= link_to "All Caregivers", caregivers_path %></li>
+        </ul>
+        <ul class="nav pull-right">
+          <% if caregiver_signed_in? %>
+          <li>
+            <%= link_to "Edit Profile", edit_caregiver_path(current_caregiver) %>
+          </li>
+          <% end %>
+          <li>
+            <%= link_to "Log In", new_caregiver_session_path unless caregiver_signed_in? %>
+            <%= link_to "Log Out", destroy_caregiver_session_path, :method => :delete if caregiver_signed_in? %>
+          </li>
+        </ul>
+
       </div>
     </div>
-	<div class="container">
+  </div>
+  <div class="container">
     <div class="logo">
       <a href="#">
         <%= image_tag "sugarcare.png" %>
-          </a>
-        </div>
+      </a>
+    </div>
 
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
 
-  <%= yield %>
+    <%= yield %>
 
-	</div>
+  </div>
 </body>
 </html>

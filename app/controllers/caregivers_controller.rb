@@ -1,8 +1,14 @@
 class CaregiversController < ApplicationController
+  before_filter :authenticate_caregiver!, :except => [:index, :show]
+
   # GET /caregivers
   # GET /caregivers.json
   def index
-    @caregivers = Caregiver.all
+    unless params[:zipcode].blank?
+      @caregivers = Caregiver.near(params[:zipcode][:zipcode],20)
+    else
+      @caregivers = Caregiver.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -21,42 +27,16 @@ class CaregiversController < ApplicationController
     end
   end
 
-  # GET /caregivers/new
-  # GET /caregivers/new.json
-  def new
-    @caregiver = Caregiver.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @caregiver }
-    end
-  end
 
   # GET /caregivers/1/edit
   def edit
-    @caregiver = Caregiver.find(params[:id])
-  end
-
-  # POST /caregivers
-  # POST /caregivers.json
-  def create
-    @caregiver = Caregiver.new(params[:caregiver])
-
-    respond_to do |format|
-      if @caregiver.save
-        format.html { redirect_to @caregiver, notice: 'Caregiver was successfully created.' }
-        format.json { render json: @caregiver, status: :created, location: @caregiver }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @caregiver.errors, status: :unprocessable_entity }
-      end
-    end
+    @caregiver = current_caregiver
   end
 
   # PUT /caregivers/1
   # PUT /caregivers/1.json
   def update
-    @caregiver = Caregiver.find(params[:id])
+    @caregiver = current_caregiver
 
     respond_to do |format|
       if @caregiver.update_attributes(params[:caregiver])
