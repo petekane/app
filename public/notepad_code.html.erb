@@ -1,0 +1,77 @@
+<div style="float:left;">
+
+
+
+removed from edit.html.erb under registrations
+
+	<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+
+
+
+  <br>
+  <h6> In Minnesota, Caregivers on SugarCare must be employed by a verified agency, meeting the Minnesota Department of Human Services Provider Enrollment Requirements, which includes: Medicare Certification, Training, Insurance and Bonding.<h6>
+
+  <a href="http://www.dhs.state.mn.us/main/idcplg?IdcService=GET_DYNAMIC_CONVERSION&RevisionSelectionMethod=LatestReleased&dDocName=dhs16_148044#">Provider Enrollment Requirements</a>
+
+  All Caregivers on Sugarcare must be employed through a licensed agency that provides up to date training.
+
+
+
+  from application.html.erb (bottom)
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+
+Individual agencies are responsible for providing backgournd checks, training, insurance and bonding for Caregivers.
+
+
+<div class="span5">
+ 	**To sign-up on SugarCare you should be be employed by a licensed agency, have at least 6 months of cargiving experience, or have completed a recognized training program. Client relationships initiated on SugarCare can only be formalized through licensed 3rd party agecnies.
+ 	<br>
+ 	<br></div>
+
+
+
+<div class="span12"><%= f.input :password %></div>
+<div class="span12"><%= f.input :password_confirmation %>
+
+
+
+
+
+<%= f.input :bio, :input_html => {:maxlength =>500,:style=> 'width: 430px'}%>
+
+
+
+
+
+
+
+<h2>Sign In</h2>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, :autofocus => true %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+  <% end -%>
+
+  <div><%= f.submit "Sign in", class: "btn" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+
+
+
+
+<div><%= f.label :organization %><br />
+  <%= f.input :organization %></div>
+

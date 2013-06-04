@@ -5,7 +5,7 @@ class CaregiversController < ApplicationController
   # GET /caregivers.json
   def index
     unless params[:zipcode].blank?
-      @caregivers = Caregiver.near(params[:zipcode][:zipcode],20)
+      @caregivers = Caregiver.near(params[:zipcode][:zipcode],1)
     else
       @caregivers = Caregiver.all
     end
@@ -61,3 +61,22 @@ class CaregiversController < ApplicationController
     end
   end
 end
+
+
+
+
+
+  def create
+    @caregiver = Caregiver.create(params[:caregiver])
+  end
+
+
+
+
+
+
+
+
+
+
+

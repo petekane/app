@@ -11,21 +11,17 @@
   <div id="front-page-nav" class="navbar navbar-fixed-top navbar-inverse">
     <div class="navbar-inner">
       <div class="container">
-        <%= link_to "SugarCare", root_path, :class => "brand" %>
+        <%= link_to "SugarCare.org", caregivers_path, :class => "brand" %>
         <ul class="nav">
           <li>
-            <a href="#">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#">
+            <a href="http://localhost:3000/how_does_it_work.html">
               How Does It Work?
             </a>
           </li>
-          <li><%= link_to "All Caregivers", caregivers_path %></li>
         </ul>
         <ul class="nav pull-right">
+          <li> 
+            <% unless caregiver_signed_in? then %> <%= link_to 'Sign up as a Caregiver', new_caregiver_registration_path %> <% end %></li>
           <% if caregiver_signed_in? %>
           <li>
             <%= link_to "Edit Profile", edit_caregiver_path(current_caregiver) %>
@@ -42,13 +38,10 @@
   </div>
   <div class="container">
     <div class="logo">
-      <a href="#">
-        <%= image_tag "sugarcare.png" %>
-      </a>
+        <%= link_to image_tag( 'sugarcare.png'), caregivers_path  %>
     </div>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+<p class="notice"><%= notice %></p>
 
 
     <%= yield %>
