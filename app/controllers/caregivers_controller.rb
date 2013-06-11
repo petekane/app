@@ -5,7 +5,7 @@ class CaregiversController < ApplicationController
   # GET /caregivers.json
   def index
     unless params[:zipcode].blank?
-      @caregivers = Caregiver.near(params[:zipcode][:zipcode],1)
+      @caregivers = Caregiver.near(params[:zipcode][:zipcode],25)
     else
       @caregivers = Caregiver.all
     end
@@ -13,6 +13,14 @@ class CaregiversController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @caregivers }
+    end
+  end
+
+def new
+    @caregiver = Caregiver.new
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @caregivers }
     end
   end
 
