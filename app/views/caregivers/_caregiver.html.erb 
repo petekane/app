@@ -1,0 +1,16 @@
+<div class="caregiver" id="<%= caregiver.id %>">
+  <div class="front">
+    <%= link_to caregiver, class: 'pic-link' do %>
+      <%= image_tag caregiver.avatar.url(:square) %>
+    <% end %>
+  </div>
+
+  <div class="back">
+    <span class="caregiver-name"><%= caregiver.name %></span>
+    <div class="actions">
+      <%= link_to 'Show', caregiver %>
+      <%= link_to 'Edit', edit_friend_path(caregiver) %>
+      <%= link_to 'Delete', caregiver, confirm: 'Are you sure you want to lose a caregiver?', method: :delete, class: 'destroy' %>
+    </div>
+  </div>
+</div>
