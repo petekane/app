@@ -4,7 +4,7 @@
 	Get more clients - SugarCare is the best way for you to be seen by new clients while still working at your same agency. We can also help you get hired at an agency when a client is interested in working with you!</div>
 <br>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), multipart: true) do |f| %>
 
 <% if resource.errors.any? %>
 <div id="error_explanation">
@@ -67,7 +67,7 @@ Please also note your availability here.
 <%= f.input :bio, :input_html => {:maxlength =>500, :rows => 10, :style=> 'width: 430px'}%>
 
 <div>
-<p>Upload a photo. Images must be 150 x 150px.</p>
+<p>Make sure your photo is a clear headshot of just you. And hopefully smiling :)</p>
 
 <%= f.file_field :avatar %>
 </div>

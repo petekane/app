@@ -1,0 +1,9 @@
+derek, there are binary files for imagemagick which have NO requirements to configure/make
+
+takes like 1 minute to download & symlink into usr/local/bin,
+
+compiling (even with homebrew/macports) takes like 1 hour, and can go wrong.
+
+He compiled without xcode / gcc & clang, so it's broken.
+
+Mo

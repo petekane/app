@@ -17,9 +17,10 @@ gem 'devise'
 gem 'simple_form'
 gem "geocoder"
 gem "thin"
+gem "cocaine", '0.5.0'
 gem "paperclip"
-gem "cocaine"
-
+gem 'aws-sdk'
+# gem "aws"
 
 # Gems used only for assets and not required
 # in production environments by default.
