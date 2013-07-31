@@ -19,7 +19,7 @@ gem "geocoder"
 gem "thin"
 gem "cocaine", '0.5.0'
 gem "paperclip"
-# gem 'aws-sdk'
+gem 'aws-sdk'
 
 
 # Gems used only for assets and not required
