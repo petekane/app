@@ -1,4 +1,3 @@
-
 Sugarcare::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -22,18 +21,15 @@ Sugarcare::Application.configure do
   config.assets.digest = true
 
   # config/environments/production.rb
-config.paperclip_defaults = {
-  :storage => :s3,
-  :s3_credentials => {
-<<<<<<< HEAD
-    :bucket => ENV['sugarcare.org'],
-=======
-    :bucket => ENV['sugarcare'],
->>>>>>> 77d83835621d5cd7b2321c628818c9d1bb8e2d9f
-    :access_key_id => ENV['AKIAJLEHZGHVEJMURG3A'],
-    :secret_access_key => ENV['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']
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['sugarcare.org'],
+      :access_key_id => ENV['AKIAJLEHZGHVEJMURG3A'],
+      :secret_access_key => ENV['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']
+    }
   }
-}
+
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
