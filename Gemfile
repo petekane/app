@@ -19,7 +19,6 @@ gem "geocoder"
 gem "thin"
 gem "cocaine", '0.5.0'
 gem "paperclip"
-# gem "aws"
 # gem 'aws-sdk'
 
 

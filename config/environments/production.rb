@@ -25,7 +25,11 @@ Sugarcare::Application.configure do
 config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {
+<<<<<<< HEAD
     :bucket => ENV['sugarcare.org'],
+=======
+    :bucket => ENV['sugarcare'],
+>>>>>>> 77d83835621d5cd7b2321c628818c9d1bb8e2d9f
     :access_key_id => ENV['AKIAJLEHZGHVEJMURG3A'],
     :secret_access_key => ENV['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']
   }
