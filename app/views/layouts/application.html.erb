@@ -2,13 +2,50 @@
 
 <!DOCTYPE html>
 <html>
-<head>
+ <head>
   <title>Sugarcare</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-</head>
+
+  <!-- Facebook OG Selector code, see: https://developers.facebook.com/tools/debug 
+======================================================================================== -->
+ <meta property="og:image" content="..app/assets/images/sugarcare.png">
+ <meta property="og:image" content="https://si0.twimg.com/profile_images/378800000398887390/c01bc41f2cd424a0e497c8d22426af68.png"/>
+  <meta property="og:image:secure_url" content="https://sphotos-a-ord.xx.fbcdn.net/hphotos-prn1/1186968_495138617247051_1864117738_n.png"/>
+
+
+<!-- Facebook Registration click through conversion tracking
+========================================================================== -->
+         <script type="text/javascript">
+            var fb_param = {};
+            fb_param.pixel_id = '6011611621760';
+            fb_param.value = '0.00';
+            fb_param.currency = 'USD';
+            (function(){
+            var fpw = document.createElement('script');
+            fpw.async = true;
+            fpw.src = '//connect.facebook.net/en_US/fp.js';
+            var ref = document.getElementsByTagName('script')[0];
+            ref.parentNode.insertBefore(fpw, ref);
+            })();
+         </script>
+        <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6011611621760&amp;value=0&amp;currency=USD" /></noscript>
+ </head>
 <body>
+
+  <!-- Facebook Java Script SDK
+========================================================================== -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
   <!-- Main Navigation Links -->
   <div id="front-page-nav" class="navbar navbar-fixed-top navbar-inverse">
     <div class="navbar-inner">
@@ -33,6 +70,8 @@
       </div>
     </div>
   </div>
+
+<!-- Main SugarCare Logo -->
   <div class="container">
     <div class="logo">
         <%= link_to image_tag( 'sugarcare.png'), caregivers_path  %>
@@ -44,5 +83,98 @@
     <%= yield %>
 
   </div>
+
+
+<!-- Footer
+================================================== -->
+<style>
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto 100px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+.footer {
+  height: 270px;
+  background-color: #f5f5f5;
+}
+.footer-email {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.social {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+</style>
+
+
+<footer class="footer" role="contentinfo">
+<div class="container">
+
+<div class="social">
+
+<!-- Twitter Follow SugarCare
+================================================== -->
+  <a href="https://twitter.com/SugarCare" class="twitter-follow-button" data-show-count="false">Follow @SugarCare</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+<!-- Twitter, Tweet this!
+================================================== -->
+       <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://sugarcare.org" data-text="Make a Caregiver Profile on SugarCare!" data-via="SugarCare">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+<!-- Facebook HTML 5 Like and Send
+================================================== -->
+<div class="fb-like" data-href="http://www.sugarcare.org" data-width="450" data-show-faces="false" data-send="true"></div>
+
+</div>
+
+<div>
+  <p>
+  Built in Minneapolis.
+</p>
+</div>
+
+<div>
+  <p>
+    Copyright 2013.
+</p>
+</div>
+
+
+
+<div class="footer-email">
+<p>Tell us what you think:
+<a href="mailto:hello@sugarcare.org?Subject=Hello%20SugarCare!" target="_top">
+hello@sugarcare.org</a>
+</p> 
+</div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37565509-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</div>
+    </footer>
+
+
 </body>
 </html>
