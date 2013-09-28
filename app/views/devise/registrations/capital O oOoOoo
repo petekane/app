@@ -1,3 +1,0 @@
-#use this in registrations, new!
-
- <%= f.input :organization, :label => "Organization, Agency or Employer", :placeholder => "Required, but not shown in Caregiver 
