@@ -103,5 +103,5 @@
 <b> Requesting an interview is Free! Please include the best way to contact you.</b>
 
 <div>
-      <%= mail_to "hello@sugarcare.co", "Request an Interview", :class => "btn", :subject => "Request Caregiver Interview", :body => "I would like to schedule an interview with #{@caregiver.first_name} #{@caregiver.last_name.first}, <br> #{caregiver_url(@caregiver)}" %>
+      <%= mail_to "hello@sugarcare.org", "Request an Interview", :class => "btn", :subject => "Request Caregiver Interview", :body => "I would like to schedule an interview with #{@caregiver.first_name} #{@caregiver.last_name.first}, #{caregiver_url(@caregiver)}" %>
 </div>
