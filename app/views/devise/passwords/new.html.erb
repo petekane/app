@@ -6,7 +6,16 @@
   <%= f.label :email %>
   <%= f.email_field :email, :autofocus => true %>
 
-  <div><%= f.submit "Send me reset password instructions", class: "btn" %></div>
+  <div><%= f.submit "Send me reset password instructions", class: "btn password-reset-btn" %></div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<style>
+  .password-reset-btn {
+  padding: 7px 20px;
+  *margin-left: .5em;
+  line-height: 24px;
+  *line-height: 24px;
+  text-decoration: none;
+  text-align: center;
+}
+</style>

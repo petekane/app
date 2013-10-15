@@ -20,7 +20,7 @@ Sugarcare::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  # config/environments/production.rb
+  # AWS S3 profile attachment storage: config/environments/production.rb
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
@@ -29,7 +29,6 @@ Sugarcare::Application.configure do
       :secret_access_key => 'o9gEkYU68g2l7L7tIcVB6b7bYnNig9FZwI6qmx88'
     }
   }
-
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH

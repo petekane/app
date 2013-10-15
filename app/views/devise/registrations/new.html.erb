@@ -1,7 +1,6 @@
-<h2>Caregiver Sign up</h2>
-<br>
 <div class="get-more-clients-txt">
-	SugarCare is the best way for Caregivers to be seen. Using SugarCare benefits caregivers, clients and caregiver organizations by enabling better connections. To signup on SugarCare, you must work at an organization that provides up to date training, bonding, insurance and background checks.</div>
+	SugarCare is the best way for Caregivers to be seen by new clients. Caregiver profiles will always be free.
+  <h5>To signup on SugarCare, you must work at an organization that provides up to date training, bonding, insurance and background checks.</h5></div>
 <br>
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), multipart: true) do |f| %>
@@ -23,7 +22,6 @@
 .get-more-clients-txt {
   font-size: 19px;
   line-height: 30px;
-  max-width: 900px;
   margin-bottom: 30px;
 }
 
@@ -33,16 +31,27 @@
     margin-top: 23px;
     line-height: 30px;
   }
+    .avatar-upload {
+      margin-bottom: 20px;
+  }
+  .register-btn {
+  padding: 7px 20px;
+  *margin-left: .5em;
+  line-height: 24px;
+  *line-height: 24px;
+  text-decoration: none;
+  text-align: center;
+}
+
+
 </style>
 
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <br>
-    <br>
     <%= f.input :email %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
-    <br>
     <br>
     <%= f.input :phone_number, :input_html => {:maxlength =>10} %>
     <%= f.input :city %>
@@ -62,18 +71,19 @@ Say some interesting things about yourself. Like, what are your hobbies?
 Please also note your availability here. 
 <br>
 <br>
-<b>500 Character Limit<b></div>
+<b>500 Character Limit</b>
+</div>
 
 <%= f.input :bio, :input_html => {:maxlength =>500, :rows => 10, :style=> 'width: 430px'}%>
-
-<div>
-<p>Make sure your photo is a clear headshot of just you. And hopefully smiling :)</p>
+<br>
+<div class="avatar-upload">
+<p>Upload Photo - Smiling headshots work best! :)</p>
 
 <%= f.file_field :avatar %>
 </div>
 
 
 
-<%= f.submit "Sign up", class: "btn" %>	
+<%= f.submit "Sign up", class: "btn register-btn" %>	
 <% end %>
 

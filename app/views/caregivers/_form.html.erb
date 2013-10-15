@@ -11,23 +11,12 @@
     </div>
   <% end %>
 
-
-<style>
-  .instructions {
-    float: right;
-    display: inline-block;
-    margin-top: 23px;
-    line-height: 30px;
-  }
-</style>
-
-
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <br>
     <br>
     <%= f.input :email %>
-    <%= f.input :phone_number, :input_html => {:maxlength =>10} %>
+    <%= f.input :phone_number, :input_html => {:maxlength =>14} %>
     <br>
     <br>
     <%= f.input :city %>
@@ -47,16 +36,31 @@ Say some interesting things about yourself. Like, what are your hobbies?
 Please also note your availability here. 
 <br>
 <br>
-<b>*500 Character Limit*<b></div>
+<b>*500 Character Limit*</b>
+</div>
 
 
 <%= f.input :bio, :input_html => {:maxlength =>500, :rows => 10, :style=> 'width: 430px'}%>
 
-
+<div class="avatar-upload">
+  <p> Upload a new image to change photo. </p>
 <%= f.file_field :avatar %>
+</div>
 
 
   <div class="actions">
-    <%= f.submit "Update", class: "btn" %>
+    <%= f.submit "Save Changes", class: "btn update-profile-btn" %>
   </div>
 <% end %>
+
+<style>
+
+  .update-profile-btn {
+  padding: 7px 20px;
+  *margin-left: .5em;
+  line-height: 24px;
+  *line-height: 24px;
+  text-decoration: none;
+  text-align: center;
+}
+</style>

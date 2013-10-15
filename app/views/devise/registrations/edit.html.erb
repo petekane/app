@@ -19,9 +19,20 @@
   <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
   <%= f.password_field :current_password %>
 
-  <div><%= f.submit "Update", class: "btn" %></div>
+  <div><%= f.submit "Update", class: "btn account-update-btn" %></div>
 <% end %>
 
-<h5> Please contact hello@sugarcare.co if you would like to de-activate your account. </h5>
+<h5> Please contact hello@sugarcare.org if you would like to de-activate your account. </h5>
 
 <%= link_to "Back", :back %>
+
+<style>
+  .account-update-btn {
+  padding: 7px 20px;
+  *margin-left: .5em;
+  line-height: 24px;
+  *line-height: 24px;
+  text-decoration: none;
+  text-align: center;
+}
+</style>
