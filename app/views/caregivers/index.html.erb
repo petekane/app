@@ -1,42 +1,5 @@
 <h2>See Caregivers who work at in-home care providers near you.</h2>
 
-<div class="caregiver-search">
-<%= simple_form_for :zipcode, :url => caregivers_path, :html => {:class => "form-search"}, :method => "get" do |f| %>
-<%= f.input_field :zipcode, :placeholder => "Enter Zipcode...", :html => {:class => 'search-query'} %>
-<%= f.submit "Search Caregivers", :class => "btn search-caregivers-btn" %>
-<% end %>
-</div>
-
-<% @caregivers.each do |caregiver| %>
-
-<div class="caregiver">
-
-<div class="return-caregiver-image">
- <%= image_tag caregiver.avatar.url(:square) %>
- </div>
-
-
-<div class= "return-profile-info">
-<div class= "name-profile-headline">
-<%= caregiver.first_name %>
-<%= caregiver.last_name.first %>.
-</div>
-
-<div class="job-title-city">
-<%= caregiver.job_title %><br>
-<%= caregiver.city %>
-</div>
-
-<div class="meta">
-<%= link_to "Show", caregiver, class: "btn show-btn" %>
-</div>
-		
-</div>
-
-
-</div>
-<%end%>
-
 <style>
 select,
 textarea,
@@ -81,5 +44,50 @@ border: 2px solid #c5c5c5;
         transition: border linear 0.2s, box-shadow linear 0.2s;
 }
 
-
+.minnesota-california {
+	margin-top: -37px;
+	margin-left: 145px;
+	font-size: 12.5px;
+}
 </style>
+
+<div class="caregiver-search">
+<%= simple_form_for :zipcode, :url => caregivers_path, :html => {:class => "form-search"}, :method => "get" do |f| %>
+<%= f.input_field :zipcode, :placeholder => "Enter Zipcode...", :html => {:class => 'search-query'} %>
+<%= f.submit "Search Caregivers", :class => "btn search-caregivers-btn" %>
+<% end %>
+</div>
+
+<div class="minnesota-california">
+	<p>*We've launched in Minnesota and California.</p>
+</div>
+
+<% @caregivers.each do |caregiver| %>
+
+<div class="caregiver">
+
+<div class="return-caregiver-image">
+ <%= image_tag caregiver.avatar.url(:square) %>
+ </div>
+
+
+<div class= "return-profile-info">
+<div class= "name-profile-headline">
+<%= caregiver.first_name %>
+<%= caregiver.last_name.first %>.
+</div>
+
+<div class="job-title-city">
+<%= caregiver.job_title %><br>
+<%= caregiver.city %>
+</div>
+
+<div class="meta">
+<%= link_to "Show", caregiver, class: "btn show-btn" %>
+</div>
+		
+</div>
+
+
+</div>
+<%end%>

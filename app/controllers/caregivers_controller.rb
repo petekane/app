@@ -7,7 +7,7 @@ class CaregiversController < ApplicationController
     unless params[:zipcode].blank?
       @caregivers = Caregiver.near(params[:zipcode][:zipcode],30)
     else
-      @caregivers = Caregiver.all
+      @caregivers = []
     end
 
     respond_to do |format|
