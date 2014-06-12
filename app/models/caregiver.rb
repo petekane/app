@@ -25,7 +25,7 @@ class Caregiver < ActiveRecord::Base
   after_validation :geocode 
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode  # auto-fetch address
-  has_attached_file :avatar, :styles => { :square => "150x150#" }, default_url: "avatar_default.png"
+  has_attached_file :avatar, :styles => { :square => "150x150#" }, default_url: "./app/assets/images/avatar_default/icon.png"
 
   validates_attachment_presence :avatar
   validates_attachment_size :avatar, :less_than => 5.megabytes
