@@ -23,14 +23,14 @@ for i in i_first..i_last
   jt = title_list.sample
   y = (1..30).to_a.sample
   b = Faker::Lorem.paragraphs
-  gravatar_id = Digest::MD5.hexdigest(email.downcase)
-  gravatar_url = "http://www.gravatar.com/avatar.php?gravatar_id=#{gravatar_id}"
-  @post = Post.new
-  @post.attachment = File.new(gravatar_url)
+  #gravatar_id = Digest::MD5.hexdigest(email.downcase)
+  #gravatar_url = "http://www.gravatar.com/avatar.php?gravatar_id=#{gravatar_id}"
+  #@post = Post.new
+  #@post.attachment = File.new(gravatar_url)
   caregiver = Caregiver.new(first_name: fn, last_name: ln, \
     email: email, phone_number: phone, city: city, \
     zip_code: zip, organization: o, job_title: jt, \
     years_experience: y, bio: b, password: pw, \
-    password_confirmation: pw, avatar: @post_attachment)
+    password_confirmation: pw)
   caregiver.save!
 end
