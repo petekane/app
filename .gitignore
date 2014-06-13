@@ -17,5 +17,4 @@
 /log/*.log
 /tmp
 
-*/square/icon.png
-*/original/icon.png
+public/system
