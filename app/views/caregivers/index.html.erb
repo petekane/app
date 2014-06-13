@@ -51,43 +51,56 @@ border: 2px solid #c5c5c5;
 }
 </style>
 
-<div class="caregiver-search">
-<%= simple_form_for :zipcode, :url => caregivers_path, :html => {:class => "form-search"}, :method => "get" do |f| %>
-<%= f.input_field :zipcode, :placeholder => "Enter Zipcode...", :html => {:class => 'search-query'} %>
-<%= f.submit "Search Caregivers", :class => "btn search-caregivers-btn" %>
-<% end %>
-</div>
-
 <div class="minnesota-california">
 	<p>*We've launched in Minnesota and California.</p>
 </div>
 
-<% @caregivers.each do |caregiver| %>
+<%= paginate @caregivers %>
 
 <div class="caregiver">
-
-<div class="return-caregiver-image">
- <%= image_tag caregiver.avatar.url(:square) %>
- </div>
-
-
-<div class= "return-profile-info">
-<div class= "name-profile-headline">
-<%= caregiver.first_name %>
-<%= caregiver.last_name.first %>.
+<table>
+  <tr>
+	<th>Photo</th>
+    <th>Last Name</th>
+	<th>First Name</th>
+	<th>Job Title</th>
+	<th>City</th>
+	<th>Zip Code</th>
+  </tr>
+<% @caregivers.each do |caregiver| %>
+  <div class="return-caregiver-image">
+  <tr>
+	<td>
+    <%= image_tag caregiver.avatar.url(:square) %>
+    </td>
+	<td>
+    <%= caregiver.last_name %>
+    </td>
+	<td>
+    <%= caregiver.first_name %>
+    </td>
+	<td>
+    <%= caregiver.job_title %>
+    </td>
+	<td>
+    <%= caregiver.city %>
+    </td>
+	<td>
+    <%= link_to "Show", caregiver, class: "btn show-btn" %>
+    </td>
+  </tr>
+  </div>
+<% end %>
+</table>
 </div>
 
-<div class="job-title-city">
-<%= caregiver.job_title %><br>
-<%= caregiver.city %>
-</div>
+<%= paginate @caregivers %>
+<% # Parameters to display:
+# Avatar
+# First name
+# Last name
+# Job title
+# City
+# Zip code
+%>
 
-<div class="meta">
-<%= link_to "Show", caregiver, class: "btn show-btn" %>
-</div>
-		
-</div>
-
-
-</div>
-<%end%>

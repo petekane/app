@@ -4,19 +4,19 @@ class CaregiversController < ApplicationController
   # GET /caregivers
   # GET /caregivers.json
   def index
-    unless params[:zipcode].blank?
-      @caregivers = Caregiver.near(params[:zipcode][:zipcode],30)
-    else
-      @caregivers = []
-    end
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @caregivers }
-    end
+    @search = Caregiver.search(params[:q].presence)
+    # NOTE: The following line specifies the sort order.
+    # This is reflected in the default sort criteria shown.
+    # The user is free to remove these default criteria.
+    @search.sorts = 'last_name asc' if @search.sorts.empty?
+    @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
+    @caregivers = @search.result
+    @caregivers_count = @caregivers.count
+    @caregivers = @caregivers.order("last_name").page(params[:page]).per(10)
   end
 
-def new
+  def new
     @caregiver = Caregiver.new
     respond_to do |format|
       format.html # new.html.erb
