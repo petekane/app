@@ -6,6 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+if Rails.env.production?
+  raise "rake db:seed has been disabled for the production environment"
+end
+
+
 require 'faker'
 i_first = 1000000
 i_last = i_first + 10
