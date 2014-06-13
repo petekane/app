@@ -1,8 +1,10 @@
 Sugarcare::Application.routes.draw do
   devise_for :caregivers
 
-  resources :caregivers
-  root to: 'caregivers#index'
+  resources :caregivers do
+    root to: 'caregivers#index'
+    collection { post :search, to: 'caregivers#index' }
+  end
 
 
   # The priority is based upon order of creation:

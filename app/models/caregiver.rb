@@ -30,4 +30,17 @@ class Caregiver < ActiveRecord::Base
   validates_attachment_presence :avatar
   validates_attachment_size :avatar, :less_than => 5.megabytes
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
+  
+  RANSACKABLE_ATTRIBUTES = ["last_name"]
+  RANSACKABLE_ATTRIBUTES << ["first_name"]
+  RANSACKABLE_ATTRIBUTES << ["city"]
+  RANSACKABLE_ATTRIBUTES << ["zip_code"]
+  RANSACKABLE_ATTRIBUTES << ["job_title"]
+  RANSACKABLE_ATTRIBUTES << ["email"]
+  RANSACKABLE_ATTRIBUTES << ["phone_number"]
+  RANSACKABLE_ATTRIBUTES << ["years_experience"]
+  
+  def self.ransackable_attributes auth_object = nil
+      RANSACKABLE_ATTRIBUTES + _ransackers.keys
+  end
 end
